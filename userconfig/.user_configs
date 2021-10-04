@@ -3,15 +3,6 @@ export PATH=/usr/sbin:/usr/local/sbin:$PATH
 
 ### PERSONAL SCRIPTS/BINARIES ###
 
-## ATB3
-export MARELLI_USER=F55646B
-export MARELLI_REPO=$HOME/Documents/work/marelli
-export MARELLI_UTILS=$MARELLI_REPO/atb3_utils
-
-export PATH=$MARELLI_UTILS/binaries_utils/host_script/general_purpose_bins:$PATH
-export PATH=$MARELLI_UTILS/binaries_utils/host_script/atb3_bins:$PATH
-export PATH=$MARELLI_UTILS/binaries_utils/host_script/atb3_bins/board_db_scripts:$PATH
-
 ### ALIASES ###
 alias fd=fdfind
 
