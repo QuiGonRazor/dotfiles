@@ -1,0 +1,54 @@
+export PATH=/usr/sbin:/usr/local/sbin:$PATH
+
+
+### PERSONAL SCRIPTS/BINARIES ###
+
+## ATB3
+export MARELLI_USER=F55646B
+export MARELLI_REPO=$HOME/Documents/work/marelli
+export MARELLI_UTILS=$MARELLI_REPO/atb3_utils
+
+export PATH=$MARELLI_UTILS/binaries_utils/host_script/general_purpose_bins:$PATH
+export PATH=$MARELLI_UTILS/binaries_utils/host_script/atb3_bins:$PATH
+export PATH=$MARELLI_UTILS/binaries_utils/host_script/atb3_bins/board_db_scripts:$PATH
+
+### ALIASES ###
+alias fd=fdfind
+
+## ATB3 ##
+alias atbinstallbin='atbinstall -b -r -s -p'
+alias atbinstalllegato='atbinstall -a -p'
+
+## DOCKER ##
+# BASE #
+alias dcontainer='sudo docker container'
+alias dimage='sudo docker image'
+
+# SPECIALIZED #
+alias drun='dcontainer run'
+alias dps='dcontainer ps'
+alias dattach='dcontainer attach'
+alias dbuild='dimage build --rm'
+alias dstopall='docker stop $(docker ps -aq)'
+alias drmallcont='docker rm $(docker ps -aq)'
+alias drmallimages='docker rmi $(docker images -q)'
+
+alias drundetached='drun --detach --interactive --name'
+
+function dimagemeta() {
+
+	if [ $# -eq 2 ]; then
+		FORMAT_STRING='{{json '$2'}}'
+		dimage inspect --format $FORMAT_STRING $1 | jq
+	else
+		dimage inspect  $1 | jq
+	fi
+
+}
+
+#ADDING PATH TO NEW TOOLS
+export PATH=/home/floi/Documents/linux_env/genuine_linux:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
