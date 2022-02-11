@@ -48,7 +48,7 @@
 	current = rev-parse --abbrev-ref HEAD
 
 [user]
-	email = francesco.loi@outlook.it
+	email = francesco.loi@abinsula.com\n\n
 	name = floi
 
 [rebase]

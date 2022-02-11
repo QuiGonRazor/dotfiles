@@ -6,14 +6,10 @@ export PATH=/usr/sbin:/usr/local/sbin:$PATH
 ### ALIASES ###
 alias fd=fdfind
 
-## ATB3 ##
-alias atbinstallbin='atbinstall -b -r -s -p'
-alias atbinstalllegato='atbinstall -a -p'
-
 ## DOCKER ##
 # BASE #
-alias dcontainer='sudo docker container'
-alias dimage='sudo docker image'
+alias dcontainer='docker container'
+alias dimage='docker image'
 
 # SPECIALIZED #
 alias drun='dcontainer run'
@@ -35,6 +31,13 @@ function dimagemeta() {
 		dimage inspect  $1 | jq
 	fi
 
+}
+
+function dpurge() {
+	#delete all docker images
+	docker rmi -f $(docker images -aq)
+	#delete all docker containers
+	docker rm -vf $(docker ps -aq)
 }
 
 #ADDING PATH TO NEW TOOLS
